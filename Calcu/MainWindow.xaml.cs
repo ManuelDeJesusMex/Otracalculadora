@@ -90,6 +90,10 @@ namespace Calcu
             }
         }
 
+        //Validar que no se repita el signo
+
+        //contains
+
     }
     
 }
