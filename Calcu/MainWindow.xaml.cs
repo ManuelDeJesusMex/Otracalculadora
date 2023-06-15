@@ -37,6 +37,12 @@ namespace Calcu
                 {
                     HandleNumbers(value);
                 }
+                else if (IsOperator(value))
+                {
+                    HandleOperator(value);
+                }
+
+
             }
             catch (Exception ex)
             {
@@ -59,8 +65,31 @@ namespace Calcu
                 Screen.Text = value;
 
             }
-            Screen.Text += value;
+            Screen.Text = value;
         }
+
+        private bool IsOperator (string possibleOperative)
+        {
+            //if (possibleOperative == "+" || possibleOperative == "-" || possibleOperative == "*" || possibleOperative == "/")
+            //{
+            //    return true;
+            //} else
+            //{
+            //    return false;
+            //}
+
+
+            return possibleOperative == "+" || possibleOperative == "-" || possibleOperative == "*" || possibleOperative == "/";
+        }
+
+        private void HandleOperator (string value)
+        {
+            if (!String.IsNullOrEmpty(Screen.Text))
+            {
+                Screen.Text += value;
+            }
+        }
+
     }
     
 }
