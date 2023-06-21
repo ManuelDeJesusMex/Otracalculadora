@@ -54,6 +54,10 @@ namespace Calcu
                 {
                     HandleEquals(Screen.Text);
                 }
+                else if (value == ",")
+                {
+                    Screen.Text += ".";
+                }
 
 
             }
