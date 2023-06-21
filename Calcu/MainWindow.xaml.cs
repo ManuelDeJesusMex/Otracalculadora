@@ -77,8 +77,11 @@ namespace Calcu
             {
                 Screen.Text = value;
 
+            } else
+            {
+                Screen.Text += value;
             }
-            Screen.Text += value;
+            
         }
 
         private bool IsOperator (string possibleOperative)
