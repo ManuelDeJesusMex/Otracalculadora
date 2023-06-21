@@ -46,6 +46,10 @@ namespace Calcu
                 {
                     Screen.Clear();
                 }
+                else if (value == "C")
+                {
+                    Screen.Text = Screen.Text.Remove(Screen.Text.Length - 1);
+                }
                 else if (value == "=")
                 {
                     HandleEquals(Screen.Text);
