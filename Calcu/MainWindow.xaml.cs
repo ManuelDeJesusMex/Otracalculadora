@@ -42,6 +42,15 @@ namespace Calcu
                     HandleOperator(value);
                 }
 
+                else if (value=="CE")
+                {
+                    Screen.Clear();
+                }
+                else if (value == "=")
+                {
+                    HandleEquals(Screen.Text);
+                }
+
 
             }
             catch (Exception ex)
@@ -94,7 +103,88 @@ namespace Calcu
 
         //contains
 
-        
+
+        private void HandleEquals (string screenConten)
+        {
+            string op = FindOperator(screenConten);
+
+            if (!String.IsNullOrEmpty(op))
+            {
+                switch (op)
+                {
+                    case "+":
+                        Screen.Text = sum();
+
+                        break;
+
+                    case "-":
+                        Screen.Text = res();
+                        break;
+
+                    case "*":
+                        Screen.Text= mult();
+                        break;
+
+                    case "/":
+                        Screen.Text = divi();
+                        break;
+
+                    default: 
+                        break;
+                }
+            }
+        }
+
+        private string FindOperator (string screenContent)
+        {
+            foreach (var c in screenContent) {
+                if (IsOperator(c.ToString())) {
+
+                return c.ToString();
+            }
+            }
+            return "No hay nada";
+        }
+
+    private string sum()
+    {
+        string[] number = Screen.Text.Split('+');
+            double.TryParse(number[0], out double n1);
+
+            double.TryParse(number[1], out double n2);
+
+            return Math.Round(n1 + n2, 12).ToString();
+    }
+        private string res()
+        {
+            string[] number = Screen.Text.Split('-');
+            double.TryParse(number[0], out double n1);
+
+            double.TryParse(number[1], out double n2);
+
+            return Math.Round(n1 - n2, 12).ToString();
+        }
+        private string mult()
+        {
+            string[] number = Screen.Text.Split('*');
+            double.TryParse(number[0], out double n1);
+
+            double.TryParse(number[1], out double n2);
+
+            return Math.Round(n1 * n2, 12).ToString();
+        }
+        private string divi()
+        {
+            string[] number = Screen.Text.Split('/');
+            double.TryParse(number[0], out double n1);
+
+            double.TryParse(number[1], out double n2);
+
+            return Math.Round(n1 / n2, 12).ToString();
+            //KDFGNDSKFG
+        }
+
+
 
     }
     
